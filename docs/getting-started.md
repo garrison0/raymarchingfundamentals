@@ -249,15 +249,15 @@ $$
 
 How we can generate our ray's direction from this information? In other words, what pixel in the image grid are we pointing at?
 
-[](img of not knowing what ray direction/position in grid is!)
+[img of not knowing direction of ray/position in grid is](https://www.google.com)
 
 We can get to the center of the image grid by following along the direction the camera is "looking" at. Call this direction the $"Forward"$ vector:
 
-[img of (1) -- get to the center](...)
+[img of (1) -- get to the center](https://www.google.com)
 
 What we really need are the $"Up"$ and $"Right"$ vectors of the image grid:
 
-[](img of (2) -- up and right)
+[img of 2 - up and right](https://www.google.com)
 
 We also need some way of telling how far $"Right"$ and how far $"Up"$ we should go in the grid for each pixel. Then, just like locating a position $(x,y)$ within 2d Cartesian coordinates, we could locate our position within the image grid:
 
@@ -306,11 +306,11 @@ The math is exactly the same, but we need some way of figuring out the $"Up"$ an
 
 1. By the definition of the target vector, $"Forward"$ will always be $\vec{ta} - \vec{ro}$:
 
-  [pic](...)
+  [pic](https://www.google.com)
 
 2. Choose the $y$ axis $\begin{bmatrix} 0 \\ 1 \\ 0 \end{bmatrix}$ as a temporary $"Up"$:
 
-  [pic](...)
+  [pic](https://www.google.com)
 
 3. Use the cross product to find $"Right"$:
 
@@ -318,7 +318,7 @@ The math is exactly the same, but we need some way of figuring out the $"Up"$ an
   "Right" = "Forward" \times "Up"
   $$
 
-  [pic](...)
+  [pic](https://www.google.com)
 
 :::note
 
@@ -332,7 +332,7 @@ The cross product $\vec{c} = \vec{a} \times \vec{b}$ is defined to be perpendicu
   "Up" = "Right" \times "Forward"
   $$
 
-  [pic](...)
+  [pic](https://www.google.com)
 
 Now repeat the math with the UV coordinates!
 
@@ -485,7 +485,7 @@ During each step of the loop, we:
   This signifies that an intersection has been detected.
   3. Else, step the ray by the minimum distance.
   Distance functions are blind to direction. Since our map function does not tell us the direction of any of the objects, we only know we can safely step by the minimum distance each iteration.
-  [Minimum distance illustration](...)
+  [Minimum distance illustration](https://www.google.com)
 
 #### Map
 
