@@ -236,9 +236,12 @@ void main() {
 }
 ```
 
-Remember the ray tracing picture from the introduction?
+Recall that ray casting consists of shooting rays through an imaginary grid in front of a camera into a scene filled with objects:
 
-![ray tracing grid img](https://developer.nvidia.com/sites/default/files/pictures/2018/RayTracing/ray-tracing-image-1.jpg)
+<div style={{textAlign: 'center', marginTop: '3rem', marginBottom: '2rem'}}>
+  <img style={{width:'85%'}}
+       src="/img/raymarching/raycast.svg" />
+</div>
 
 Let's say the camera lives at the origin and the camera is "looking" in the direction of the z axis:
 
@@ -249,21 +252,35 @@ $$
 
 How we can generate our ray's direction from this information? In other words, what pixel in the image grid are we pointing at?
 
-[img of not knowing direction of ray/position in grid is](https://www.google.com)
+<div style={{textAlign: 'center'}}>
+  <img style={{width:'85%'}}
+       src="/img/raymarching/unknown-ray.svg" />
+</div>
 
-We can get to the center of the image grid by following along the direction the camera is "looking" at. Call this direction the $"Forward"$ vector:
+We can get to the center of the image grid by following along the direction the camera is "looking" at. Call this direction the $"Forward"$ vector, defined by $\vec{ta} - \vec{ro}$:
 
-[img of (1) -- get to the center](https://www.google.com)
+<div style={{textAlign: 'center'}}>
+  <img style={{width:'85%'}}
+       src="/img/raymarching/grid-center.svg" />
+</div>
 
 What we really need are the $"Up"$ and $"Right"$ vectors of the image grid:
 
-[img of 2 - up and right](https://www.google.com)
+<div style={{textAlign: 'center', marginTop: '3rem', marginBottom: '2rem'}}>
+  <img style={{width:'85%'}}
+       src="/img/raymarching/up-and-right.svg" />
+</div>
 
 We also need some way of telling how far $"Right"$ and how far $"Up"$ we should go in the grid for each pixel. Then, just like locating a position $(x,y)$ within 2d Cartesian coordinates, we could locate our position within the image grid:
 
 <figure style={{textAlign: 'center', fontStyle: 'italic'}}>
   <img src="/img/raymarching/cartesian-point.png" width="450" style={{marginLeft: 'auto', marginRight: 'auto'}}/>
   <figcaption> (x,y) = (2,1) = 2 * "Right + 1 * "Up"</figcaption>
+</figure>
+
+<figure style={{textAlign: 'center', fontStyle: 'italic'}}>
+  <img src="/img/raymarching/up-and-right-point.svg" width="450" style={{marginLeft: 'auto', marginRight: 'auto'}}/>
+  <figcaption> ray direction = 2 * "Right" + 1 * "Up" + "Forward</figcaption>
 </figure>
 
 In this case, we're in luck. Since the camera is looking straight ahead, the camera is axis aligned. We can use the $z$ axis $\begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix}$ as our $"Forward"$ vector, and we can use the other two axes, $x$ and $y$--
@@ -273,7 +290,7 @@ $$
 "Up" = \begin{bmatrix} 0 \\ 1 \\ 0 \end{bmatrix}
 $$
 
---to locate our ray on the image grid.
+--as $"Right"$ and $"Up"$ to locate our ray on the image grid.
 
 Remember how we're actually drawing a full screen rectangle? We can use this rectangle's texture coordinates `uv` to locate our position within the canvas. This, in turn, tells us how far "right" and how far "up" we need to go in the image grid!
 
@@ -287,7 +304,7 @@ Each position in the image grid is determined by this equation. Since our camera
 
 $$
 \begin{aligned}
-  \vec{rd} &= uv.x * \begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix} + uv.y * \begin{bmatrix} 0 \\ 1 \\ 0 \end{bmatrix} + \begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix} \\
+  \vec{rd} &= uv.x * \begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix} + uv.y * \begin{bmatrix} 0 \\ 1 \\ 0 \end{bmatrix} + \begin{bmatrix} 0 \\ 0 \\ 1 \end {bmatrix} \\
   &= \begin{bmatrix} uv.x \\ uv.y \\ 1 \end{bmatrix}
 \end{aligned}
 $$
@@ -306,11 +323,17 @@ The math is exactly the same, but we need some way of figuring out the $"Up"$ an
 
 1. By the definition of the target vector, $"Forward"$ will always be $\vec{ta} - \vec{ro}$:
 
-  [pic](https://www.google.com)
+  <div style={{textAlign: 'center', marginTop: '3rem', marginBottom: '2rem'}}>
+    <img style={{width:'85%'}}
+        src="/img/raymarching/ro-to-ta.svg" />
+  </div>
 
 2. Choose the $y$ axis $\begin{bmatrix} 0 \\ 1 \\ 0 \end{bmatrix}$ as a temporary $"Up"$:
 
-  [pic](https://www.google.com)
+  <div style={{textAlign: 'center', marginTop: '3rem', marginBottom: '2rem'}}>
+    <img style={{width:'85%'}}
+        src="/img/raymarching/up-and-forward.svg" />
+  </div>
 
 3. Use the cross product to find $"Right"$:
 
@@ -318,7 +341,10 @@ The math is exactly the same, but we need some way of figuring out the $"Up"$ an
   "Right" = "Forward" \times "Up"
   $$
 
-  [pic](https://www.google.com)
+  <div style={{textAlign: 'center', marginTop: '3rem', marginBottom: '2rem'}}>
+    <img style={{width:'85%'}}
+        src="/img/raymarching/forward-up-right.svg" />
+  </div>
 
 :::note
 
@@ -332,7 +358,10 @@ The cross product $\vec{c} = \vec{a} \times \vec{b}$ is defined to be perpendicu
   "Up" = "Right" \times "Forward"
   $$
 
-  [pic](https://www.google.com)
+  <div style={{textAlign: 'center', marginTop: '3rem', marginBottom: '2rem'}}>
+    <img style={{width:'85%'}}
+        src="/img/raymarching/forward-newup-right.svg" />
+  </div>
 
 Now repeat the math with the UV coordinates!
 
@@ -350,9 +379,9 @@ Expand the math and it looks exactly the same:
 
 $$
 \begin{aligned}
-\vec{rd} &= "Right".x * uv.x + "Up".x * uv.y + "Forward".x \\
-         &+ "Right".y * uv.x + "Up".y * uv.y + "Forward".y \\
-         &+ "Right".z * uv.x + "Up".z * uv.y + "Forward".z \\
+\vec{rd} &= \begin{bmatrix} "Right".x * uv.x + "Up".x * uv.y + "Forward".x \\
+            "Right".y * uv.x + "Up".y * uv.y + "Forward".y \\
+            "Right".z * uv.x + "Up".z * uv.y + "Forward".z \end{bmatrix} \\
          &= uv.x * "Right" + uv.y * "Up" + "Forward" 
 \end{aligned}
 $$
@@ -417,7 +446,10 @@ $$
 
 What would happen if we multipled $"Forward"$ by some constant $c > 1$, pushing the image grid further away from the camera?
 
-(give picture of how far away from grid => how zoomed in it looks)
+<div style={{textAlign: 'center', marginTop: '3rem', marginBottom: '2rem'}}>
+  <img style={{width:'85%'}}
+       src="/img/raymarching/zoom.svg" />
+</div>
 
 The visual field gets smaller. Since we're not moving the camera position, $\vec{ro}$, all we're doing is decreasing variation along the $"Up"$ and "$Right"$ directions across all of the rays. The effect: more rays being focused around the $"Forward"$ direction. Since each ray corresponds with a pixel on the screen, this looks like zooming in.
 
@@ -485,7 +517,13 @@ During each step of the loop, we:
   This signifies that an intersection has been detected.
   3. Else, step the ray by the minimum distance.
   Distance functions are blind to direction. Since our map function does not tell us the direction of any of the objects, we only know we can safely step by the minimum distance each iteration.
-  [Minimum distance illustration](https://www.google.com)
+
+  For example, even though here the minimum distance object is behind the ray direction, the ray marcher can only step by the minimum distance during this iteration:
+
+  <div style={{textAlign: 'center', marginTop: '3rem', marginBottom: '2rem'}}>
+    <img style={{width:'95%'}}
+        src="/img/raymarching/min-dist-step.svg" />
+  </div>
 
 #### Map
 
@@ -546,7 +584,7 @@ vec3 render(in vec3 ro, in vec3 rd, float time)
 
 Once an intersection is found, we return the material ID `m` of the object intersected with.
 
-We use this material ID in the 'render' function. 'render' needs to know the material properties of the object (shininess, color, and so on) during lighting calculations in order to determine the color of the pixel.
+We use this material ID in the `render` function. `render` needs to know the material properties of the object (shininess, color, and so on) in order to determine the color of the pixel during lighting calculations.
 
 For now, we're avoiding all of that and setting the color to the normal vector:
 
@@ -568,7 +606,7 @@ vec3 calcNormal( in vec3 p, float time )
 }
 ```
 
-`calcNormal` finds the normal direction by the method of central differences. Do you remember the formal definition of the derivative from Calculus?
+`calcNormal` finds the normal direction of the nearest object surface by the method of central differences. Do you remember the formal definition of the derivative from Calculus?
 
 $$
 \lim\limits_{\epsilon{} \rarr 0}{ \frac{f(x + \epsilon{}) - f(x)}{\epsilon{}} }
@@ -578,9 +616,9 @@ $$
 
 You can approximate the derivative by taking small values of $\epsilon{}$.
 
-It works in three dimensions, too. Conveniently, the derivative is defined to be in direction of the normal vector in vector calculus. Amazing.
+It works in three dimensions, too. Conveniently, the derivative is defined to be in the direction of the normal vector in vector calculus. Amazing.
 
-In the code, we're using $map$ for $f$ and approximating the derivative along each direction. Given $\vec{h} = (\epsilon{}, 0)$, $h.xyy$ is GLSL shorthand for $(\epsilon{}, 0, 0)$. Likewise for the other directions:
+In the code, we're using $map$ for $f$ and approximating the derivative along each direction. Given $\vec{h} = (\epsilon{}, 0)$, $h.xyy$ is GLSL shorthand for $(\epsilon{}, 0, 0)$. Likewise for the other axes:
 
 ```cpp
 return normalize( vec3(map(p+h.xyy, time).x - map(p-h.xyy, time).x,

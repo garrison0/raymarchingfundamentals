@@ -25,7 +25,7 @@ Ray tracing requires that objects in the scene are composed of well defined geom
 
 Ray marching, on the other hand, iteratively steps each ray into the scene until an intersection is detected. All you need to do ray marching is a function which returns the distance to each object in the scene. When the distance is negative, or close to zero, you know when to stop!
 
-![ray marching vs ray tracing img](https://wallisc.github.io/assets/Moana/Diagram2.png)
+<img width="100%" src="https://wallisc.github.io/assets/Moana/Diagram2.png" />
 
 Here's the kicker: since distance functions are mathematically defined, you can procedurally generate all kinds of distance functions to render all kinds of cool, abstract shapes.
 
