@@ -273,7 +273,7 @@ What we really need are the $"Up"$ and $"Right"$ vectors of the image grid:
 
 We also need some way of telling how far $"Right"$ and how far $"Up"$ we should go in the grid for each pixel. Then, just like locating a position $(x,y)$ within 2d Cartesian coordinates, we could locate our position within the image grid:
 
-<figure style={{textAlign: 'center', fontStyle: 'italic'}}>
+<figure style={{textAlign: 'center', fontStyle: 'italic', marginBottom: '3rem'}}>
   <img src="/img/raymarching/cartesian-point.png" width="450" style={{marginLeft: 'auto', marginRight: 'auto'}}/>
   <figcaption> (x,y) = (2,1) = 2 * "Right + 1 * "Up"</figcaption>
 </figure>
