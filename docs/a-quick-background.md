@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Background
+# A quick background
 
 ## Before you begin
 
