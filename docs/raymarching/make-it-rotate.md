@@ -2,6 +2,6 @@
 sidebar_position: 2
 ---
 
-# Make it Rotate
+# Make it rotate
 
 In progress!

@@ -2,6 +2,6 @@
 sidebar_position: 1
 ---
 
-# Make it Twist
+# Make it twist
 
 In progress!

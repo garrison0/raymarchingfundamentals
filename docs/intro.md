@@ -11,7 +11,7 @@ Have you ever visited [ShaderToy](https://www.shadertoy.com)? Most ShaderToy dem
 Imagine shooting a ray out from your eyes towards each pixel on your computer screen. Your mind "renders" this pixel as a color. Now imagine that your computer screen is transparent. Each ray continues through your screen until it intersects with whatever object lies behind the screen. The color your mind "renders" this new "pixel" as is going to depend on:
 
 - The position of intersection: is the object in fog, or in a shadow?
-- The kind of material the object is made of: is the object metallic and shiny, or soft and diffuse?
+- The object's material: is the object metallic and shiny, or soft and diffuse?
 - The kind of light source in the scene: is the light an overhead light, or more like a flashlight?
 - The angle between the object's surface and the viewer: is the ray grazing the surface, or hitting the surface head-on?
 
@@ -21,9 +21,9 @@ In reality, rays of light travel from light sources, to objects, until finally h
 
 ![ray tracing grid img](https://developer.nvidia.com/sites/default/files/pictures/2018/RayTracing/ray-tracing-image-1.jpg)
 
-Ray tracing requires that objects in the scene are composed of well defined geometries, like triangle meshes, which have closed solution ray intersection tests. Using these tests, you can determine the nearest position of intersection for each ray.
+Ray tracing requires that objects in the scene have well defined geometries, like triangle meshes, which have closed solution ray intersection tests. Using these tests, you can determine the nearest position of intersection for each ray.
 
-Ray marching, on the other hand, iteratively steps each ray into the scene until an intersection is detected. All you need to do ray marching is a function which returns the distance to each object in the scene. When the distance is negative, or close to zero, you know when to stop!
+Ray marching iteratively steps each ray into the scene until it detects an intersection. All you need to do ray marching is a function which returns the distance to each object in the scene. When the distance is negative, or close to zero, you know when to stop.
 
 <img width="100%" src="https://wallisc.github.io/assets/Moana/Diagram2.png" />
 
@@ -31,31 +31,29 @@ Here's the kicker: since distance functions are mathematically defined, you can 
 
 :::tip Confused?
 
-New to ray marching? This guide only briefly covers the basics. Here are some great resources in case you're ever feeling lost or in need of inspiration:
+New to ray marching? This guide briefly covers the basics. Here are some great resources in case you're ever feeling lost or in need of inspiration:
 
 - 👉 [Check out this introduction to ray marching from Jamie Wong](http://jamie-wong.com/2016/07/15/ray-marching-signed-distance-functions/)
 - 👉 [Check out some videos by Inigo Quelez](https://www.youtube.com/channel/UCdmAhiG8HQDlz8uyekw4ENw)
 - 👉 [Check out some videos by The Art of Code](https://www.youtube.com/c/TheArtofCodeIsCool)
 - 👉 [Check out the wonderful WebGL fundamentals guide](https://webglfundamentals.org/)
 
-If you're feeling good, however, tread on! Code samples will be abundant. You may be able to figure out what you need from this guide alone. If not, come back here after following some more basic tutorials.
+If you're feeling good, tread on. Code samples are abundant. You may be able to figure out what you need from this guide alone. If not, come back here after following some more basic tutorials.
 
 :::
 
 :::note
 
-Inigo Quelez has a useful list of signed distance functions on his website. [Bookmark it!](https://www.iquilezles.org/www/articles/distfunctions/distfunctions.html)
+Inigo Quelez has a useful list of signed distance functions on his website. [Bookmark it.](https://www.iquilezles.org/www/articles/distfunctions/distfunctions.html)
 
 :::
 
 ## Who's this guide for?
 
-Anyone interested in ray marching and the demoscene. Some background in programming, vector math, and trigonometry will be required. The more you know, the easier it'll be.
+Anyone interested in ray marching and the demoscene. You need some background in programming, vector math, and trigonometry to follow along. The more you know, the easier it'll be.
 
 ## What's this guide for?
 
 This tutorial introduces you to some key ray marching techniques. With each technique, you'll add to a basic "Hello World" raymarching program. By the end of the process, you'll have recreated this animation:
 
 <iframe src="https://streamable.com/e/m1u4ch?nocontrols=1" width="560" height="315" frameborder="0" allowfullscreen></iframe>
-
-Let's get started!

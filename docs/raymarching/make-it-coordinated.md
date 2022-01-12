@@ -2,6 +2,6 @@
 sidebar_position: 5
 ---
 
-# Make it Coordinated
+# Make it coordinated
 
 In progress!

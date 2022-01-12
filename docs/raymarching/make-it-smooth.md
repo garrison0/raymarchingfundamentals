@@ -2,7 +2,7 @@
 sidebar_position: 8
 ---
 
-# Make it Anti-aliased
+# Make it anti-aliased
 
 
 In progress!
