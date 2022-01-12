@@ -229,9 +229,9 @@ mat3 setCamera( in vec3 ro, in vec3 ta, float cr )
 
 void main() {
   // camera ray origin
-  vec3 ro = vec3( 0.0, 3.5, 1.0);
+  vec3 ro = vec3( 0.0, 0.0, 1.0);
   // camera target
-  vec3 ta = vec3( 0.0, 3.5, 0.0);
+  vec3 ta = vec3( 0.0, 0.0, 0.0);
 
   mat3 ca = setCamera(ro, ta, 0.0);
   float aspect = uResolution.x / uResolution.y;
@@ -586,7 +586,7 @@ To perform an iteration of the ray marcher:
 vec2 map (vec3 p, float time) 
 { 
   vec2 res = vec2(1e10, 0.0);
-  p = p + vec3(0.0, -3.5, 15.0);
+  p = p + vec3(0.0, 0.0, 15.0);
   res = vec2(sdRoundBox(p, vec3(0.5), 0.0), 15.0);
   return res;
 }
