@@ -6,6 +6,16 @@ sidebar_position: 1
 
 Have you ever visited [ShaderToy](https://www.shadertoy.com)? Most ShaderToy demos use a technique called ray marching. Ray marching is a graphical technique which, like its more well known sibling [ray tracing](https://en.wikipedia.org/wiki/Ray_tracing_(graphics)), renders an image by casting rays into a scene filled with objects.
 
+## Who's this guide for?
+
+Anyone interested in ray marching and the demoscene. You need some background in programming, vector math, and trigonometry to follow along. The more you know, the easier it'll be.
+
+## What's this guide for?
+
+This tutorial introduces you to some key ray marching techniques. With each technique, you'll add to a basic "Hello World" raymarching program. By the end of the process, you'll have recreated this animation:
+
+<iframe src="https://streamable.com/e/m1u4ch?nocontrols=1" width="560" height="315" frameborder="0" allowfullscreen></iframe>
+
 ## Ray tracing
 
 Imagine shooting a ray out from your eyes towards each pixel on your computer screen. Your mind "renders" this pixel as a color. Now imagine that your computer screen is transparent. Each ray continues through your screen until it intersects with whatever object lies behind the screen. The color your mind "renders" this new "pixel" as is going to depend on:
@@ -47,13 +57,3 @@ If you're feeling good, tread on. Code samples are abundant. You may be able to 
 Inigo Quelez has a useful list of signed distance functions on his website. [Bookmark it.](https://www.iquilezles.org/www/articles/distfunctions/distfunctions.html)
 
 :::
-
-## Who's this guide for?
-
-Anyone interested in ray marching and the demoscene. You need some background in programming, vector math, and trigonometry to follow along. The more you know, the easier it'll be.
-
-## What's this guide for?
-
-This tutorial introduces you to some key ray marching techniques. With each technique, you'll add to a basic "Hello World" raymarching program. By the end of the process, you'll have recreated this animation:
-
-<iframe src="https://streamable.com/e/m1u4ch?nocontrols=1" width="560" height="315" frameborder="0" allowfullscreen></iframe>
