@@ -11,6 +11,7 @@ export default function WebGL() {
 
   return (
     <div className={styles.wrapper}>
+      ok
       <iframe src="/twist/"> </iframe>
       <input type="range" style={{height: '100%'}} min="0" max="100" value={val} onChange={onInput}></input>
     </div>
