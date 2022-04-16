@@ -7181,6 +7181,11 @@
   "resolved" "https://registry.npmjs.org/tslib/-/tslib-2.3.1.tgz"
   "version" "2.3.1"
 
+"twgl.js@^4.22.0":
+  "integrity" "sha512-R9FfA3yDLwoiO2gnIkzxcWOI7i8L79c/vPNyt0BrERKjczYEL6zQIvd+0SBKgQmI7+lltYB3xawxrSyqy+qRpg=="
+  "resolved" "https://registry.npmjs.org/twgl.js/-/twgl.js-4.22.0.tgz"
+  "version" "4.22.0"
+
 "type-fest@^0.20.2":
   "integrity" "sha512-Ne+eE4r0/iWnpAxD852z3A+N0Bt5RN//NjJwRd2VFHEmrywxf5vsZlh4R6lixl6B+wz/8d+maTSAkN1FIkI3LQ=="
   "resolved" "https://registry.npmjs.org/type-fest/-/type-fest-0.20.2.tgz"
