@@ -59,7 +59,7 @@ Imagine you're in an old airplane cockpit with hundreds of switches and levers. 
 
 WebGL feels a bit like that, but instead of switches and levers, WebGL has program state. The various program state options tell WebGL what to do with all the data you give it. WebGL then talks to your GPU to process the data and draw it in the way that you've specified. In case something's not set right, you may only see graphical glitches. Then you have to go back to your code and debug every aspect of your program state.
 
-3D graphics libraries, like Three.JS and Babylon, are built on top of WebGL. They *do* hold your hand. They hide these details from you. They also provide pre-defined materials, light sources, geometries, math helper functions, and so on. The take-away: use Three.JS or Babylon if you want to get anything done. Use WebGL if you want low level control.
+3D graphics libraries, like Three.JS and Babylon, are built on top of WebGL. They *do* hold your hand. They hide details from you. They also provide pre-defined materials, light sources, geometries, math helper functions, and so on. The take-away: use Three.JS or Babylon for most production needs. Use WebGL if you want low level control.
 
 :::tip
 
