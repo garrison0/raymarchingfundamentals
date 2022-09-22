@@ -27,7 +27,7 @@ You should see this:
 
 ![Starter program](/img/raymarching/starter.png)
 
-The program renders a box. Not very exciting, but there's a lot to unpack here.
+The program renders a box.
 
 The rest of this page briefly explains what's going on in the program.
 
@@ -57,7 +57,7 @@ WebGL is a rendering engine, not a 3D graphics library. It doesn't hold your han
 
 Imagine you're in an old airplane cockpit with hundreds of switches and levers. Before take-off, you need to go over a big checklist to set all the switches and levers the way you want them. If something's not set right, you might notice that the airplane isn't behaving the way you expect. Then you have to turn around, land, and go over your checklist all over again.
 
-WebGL feels a bit like that, but instead of switches and levers, WebGL has program state. The various program state options tell WebGL what to do with all the data you give it. WebGL then talks to your GPU to process the data and draw it in the way that you've specified.
+WebGL feels a bit like that, but instead of switches and levers, WebGL has program state. The various program state options tell WebGL what to do with all the data you give it. WebGL then talks to your GPU to process the data and draw it in the way that you've specified. In case something's not set right, you may only see graphical glitches. Then you have to go back to your code and debug every aspect of your program state.
 
 3D graphics libraries, like Three.JS and Babylon, are built on top of WebGL. They *do* hold your hand. They hide these details from you. They also provide pre-defined materials, light sources, geometries, math helper functions, and so on. The take-away: use Three.JS or Babylon if you want to get anything done. Use WebGL if you want low level control.
 
@@ -687,4 +687,4 @@ You don't need to divide by $\epsilon{}$ because you're normalizing the vector. 
 
 :::
 
-All done. But the starter template is boring--you can only see one side of the box. The next article fixes this problem.
+All done. But the starter template is simple--you can only see one side of the box. The next article fixes this problem.

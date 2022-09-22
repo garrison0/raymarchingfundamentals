@@ -37,7 +37,7 @@ Ray marching iteratively steps each ray into the scene until it detects an inter
 
 <img width="100%" src="https://wallisc.github.io/assets/Moana/Diagram2.png" />
 
-Here's the kicker: since distance functions are mathematically defined, you can procedurally generate all kinds of distance functions to render all kinds of cool, abstract shapes.
+Ray marching possesses one unique advantage: since distance functions are mathematically defined, you can procedurally generate all kinds of distance functions to render all kinds of cool, abstract shapes.
 
 :::tip Confused?
 
