@@ -1,6 +1,9 @@
 ---
 sidebar_position: 1
+slug: /
 ---
+
+import ReactPlayer from 'react-player';
 
 # Introduction
 
@@ -12,13 +15,13 @@ Anyone interested in ray marching and the demoscene. You need some background in
 
 ## What's this guide for?
 
-This tutorial introduces you to some key ray marching techniques. With each technique, you'll add to a basic "Hello World" raymarching program. By the end of the process, you'll have recreated this animation:
+This tutorial introduces you to some key ray marching techniques. With each technique, you'll add to a basic "Hello World" raymarching program. By the end of the process, you'll have recreated this looping animation:
 
-<iframe src="https://streamable.com/e/m1u4ch?nocontrols=1" width="560" height="315" frameborder="0" allowfullscreen></iframe>
+<ReactPlayer playing="true" loop="true" controls url='/img/raymarching/final_example.mp4' />
 
 ## Ray tracing
 
-Imagine shooting a ray out from your eyes towards each pixel on your computer screen. Your mind "renders" this pixel as a color. Now imagine that your computer screen is transparent. Each ray continues through your screen until it intersects with whatever object lies behind the screen. The color your mind "renders" this new "pixel" as is going to depend on:
+Imagine shooting a ray out from your eyes towards each pixel on your computer screen. Your mind "renders" this pixel as a color. Now imagine, instead, that your computer screen is transparent. Each ray continues through your screen until it intersects with whatever object lies behind the screen. We can pretend the color visible at this position on the object corresponds to the original pixel. The color your mind "renders" this new "pixel" as is going to depend on:
 
 - The position of intersection: is the object in fog, or in a shadow?
 - The object's material: is the object metallic and shiny, or soft and diffuse?
@@ -27,9 +30,9 @@ Imagine shooting a ray out from your eyes towards each pixel on your computer sc
 
 And so on.
 
-In reality, rays of light travel from light sources, to objects, until finally hitting your eye's retina. But ray tracing works in this backwards way--by shooting rays into a scene through an imaginary grid in front of an imaginary "camera."
+In reality, rays of light travel from light sources, to objects, until finally hitting your eye's retina. But ray tracing works in this backwards way--by shooting rays into a scene through an imaginary grid in front of an imaginary "camera." In our analogy, we used your computer screen itself, with its existing grid of pixels, as the imaginary grid we shot our rays through. Your eyes corresponded to the "camera." 
 
-![ray tracing grid img](https://developer.nvidia.com/sites/default/files/pictures/2018/RayTracing/ray-tracing-image-1.jpg)
+![ray tracing grid img](/img/raymarching/ray-tracing-image-1.jpg)
 
 Ray tracing requires that objects in the scene have well defined geometries, like triangle meshes, which have closed solution ray intersection tests. Using these tests, you can determine the nearest position of intersection for each ray.
 

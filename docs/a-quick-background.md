@@ -212,6 +212,7 @@ Feeling lost? Check out the resources listed in the [introduction](intro)!
 
 :::
 
+
 ### Find the direction of the ray to cast
 
 ```cpp title="fs.glsl"
@@ -472,11 +473,11 @@ mat3 ca = setCamera(ro, ta, cos(uTime));
 
 <div style={{width: '100%', height: '0px', position: 'relative', 
         paddingBottom: '43.750%', marginBottom: '1rem'}}>
-  <iframe src="https://streamable.com/e/fswox1" frameborder="0" width="100%" height="100%" allowfullscreen 
+  <video src="/img/raymarching/cr_example.mp4" controls loop="true" frameborder="0" width="100%" height="100%" allowfullscreen 
   style={{width: '100%', height: '100%', 
           position: 'absolute', left: '0px', 
           top: '0px', overflow: "hidden;"}}>
-  </iframe>
+  </video>
 </div>
 
 Notice how the $``Up"$ and $``Right"$ vectors are rotating around the $``Forward$" vector, making it look like the box itself is rotating.
@@ -516,11 +517,11 @@ vec3 rd = ca * normalize( vec3(p, 5.0*abs(cos(uTime)) ) );
 
 <div style={{width: '100%', height: '0px', position: 'relative', 
         paddingBottom: '43.750%', marginBottom: '1rem'}}>
-  <iframe src="https://streamable.com/e/6rm0ug" frameborder="0" width="100%" height="100%" allowfullscreen 
+  <video src="/img/raymarching/c_example.mp4" controls loop="true" frameborder="0" width="100%" height="100%" allowfullscreen 
   style={{width: '100%', height: '100%', 
           position: 'absolute', left: '0px', 
           top: '0px', overflow: "hidden;"}}>
-  </iframe>
+  </video>
 </div>
 
 As $c$ gets closer to $0$, the image grid gets closer to the camera, zooming out. Likewise, when $c$ gets closer to $5$, the image grid gets farther from the camera, zooming in.
@@ -687,4 +688,4 @@ You don't need to divide by $\epsilon{}$ because you're normalizing the vector. 
 
 :::
 
-All done. But the starter template is simple--you can only see one side of the box. The next article fixes this problem.
+All done. But this starter template is simple--you can only see one side of the box. The rest of the documentation will teach you all of the techniques needed to get to the final result.

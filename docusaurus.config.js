@@ -1,22 +1,25 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
-const math = require('remark-math');
-const katex = require('rehype-katex');
+// const lightCodeTheme = require('prism-react-renderer/themes/github');
+// const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+// const math = require('remark-math');
+// import rehypeKatex from 'rehype-katex'
+// const katex = import("rehype-katex");
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Garrison\'s Portfolio',
-  tagline: 'Writing samples',
-  url: 'https://your-docusaurus-test-site.com', //set to netlify site
+  title: 'Raymarching fundamentals',
+  tagline: 'Learn how to write procedural raymarching programs',
+  url: 'https://raymarchingfundamentals.org', //set to netlify site
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
   organizationName: 'garrison0', // Usually your GitHub org/user name.
-  projectName: 'portfolio', // Usually your repo name.
+  projectName: 'raymarchingfundamentals', // Usually your repo name.
 
   presets: [
     [
@@ -24,11 +27,13 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
+          routeBasePath: '/', // Serve the docs at the site's root
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           editUrl: 'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-          remarkPlugins: [math],
-          rehypePlugins: [katex],
+          remarkPlugins: [remarkMath],
+          rehypePlugins: [rehypeKatex],
+          /* other docs plugin options */
         },
         blog: false,
         theme: {
@@ -51,18 +56,12 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'Garrison\'s Portfolio',
+        title: 'Raymarching fundamentals',
         logo: {
           alt: 'My Site Logo',
           src: 'img/logo.svg',
         },
         items: [
-          {
-            type: 'doc',
-            docId: 'intro',
-            position: 'left',
-            label: 'Ray Marching Techniques',
-          },
           {
             href: 'https://github.com/garrison0',
             label: 'GitHub',
@@ -74,34 +73,16 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Docs',
-            items: [
-              {
-                label: 'Ray Marching Techniques',
-                to: '/docs/intro',
-              },
-            ],
+            label: 'GitHub',
+            href: 'https://github.com/garrison0',
           },
           {
-            title: 'More',
-            items: [
-              {
-                label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
-              },
-              {
-                label: 'Personal',
-                href: 'https://garrison.fyi'
-              }
-            ],
-          },
+            label: 'Personal',
+            href: 'https://garrison.fyi'
+          }
         ],
         copyright: `Copyright © ${new Date().getFullYear()} Garrison McMullen`,
-      },
-      prism: {
-        theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
-      },
+      }
     }),
 };
 
