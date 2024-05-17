@@ -30,7 +30,7 @@ const config = {
           routeBasePath: '/', // Serve the docs at the site's root
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
-          editUrl: 'https://github.com/garrison0/raymarchingfundamentals',
+          editUrl: 'https://github.com/garrison0/raymarchingfundamentals/tree/main',
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex],
           /* other docs plugin options */
