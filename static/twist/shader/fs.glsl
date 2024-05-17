@@ -22,7 +22,6 @@ vec2 map (vec3 p, float time)
     p = p + vec3(0.0, 0.0, 15.0);
 
     // twist
-    // float k = (sin(time*0.35))*2.75; 
     float k = uSlider / 40.0; 
     float c = cos(k*p.y);
     float s = sin(k*p.y);
