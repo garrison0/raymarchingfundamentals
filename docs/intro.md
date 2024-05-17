@@ -21,7 +21,7 @@ This tutorial introduces you to some key ray marching techniques. With each tech
 
 ## Ray tracing
 
-Imagine shooting a ray out from your eyes towards each pixel on your computer screen. Your mind "renders" this pixel as a color. Now imagine, instead, that your computer screen is transparent. Each ray continues through your screen until it intersects with whatever object lies behind the screen. We can pretend the color visible at this position on the object corresponds to the original pixel. The color your mind "renders" this new "pixel" as is going to depend on:
+Imagine shooting a ray out from your eyes towards each pixel on your computer screen. Your mind "renders" this pixel as a color. Now imagine, instead, that your computer screen is transparent. Each ray continues through your screen until it intersects with whatever object lies behind the screen. Pretend the color visible at this position on the object corresponds to the original pixel. The color your mind "renders" this new "pixel" as is going to depend on:
 
 - The position of intersection: is the object in fog, or in a shadow?
 - The object's material: is the object metallic and shiny, or soft and diffuse?
@@ -30,7 +30,7 @@ Imagine shooting a ray out from your eyes towards each pixel on your computer sc
 
 And so on.
 
-In reality, rays of light travel from light sources, to objects, until finally hitting your eye's retina. But ray tracing works in this backwards way--by shooting rays into a scene through an imaginary grid in front of an imaginary "camera." In our analogy, we used your computer screen itself, with its existing grid of pixels, as the imaginary grid we shot our rays through. Your eyes corresponded to the "camera." 
+In reality, rays of light travel from light sources, to objects, until finally hitting your eye's retina. But ray tracing works in this backwards way--by shooting rays into a scene through an imaginary grid in front of an imaginary "camera." In our analogy, we used your computer screen itself, with its existing grid of pixels, as the imaginary grid we shot our rays through, while your eyes corresponded to the "camera." 
 
 ![ray tracing grid img](/img/raymarching/ray-tracing-image-1.jpg)
 
