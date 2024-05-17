@@ -208,7 +208,7 @@ The next section looks at each step in more detail.
 
 :::tip
 
-Feeling lost? Check out the resources listed in the [introduction](intro)!
+Feeling lost? Check out the resources listed in the [introduction](/)!
 
 :::
 
