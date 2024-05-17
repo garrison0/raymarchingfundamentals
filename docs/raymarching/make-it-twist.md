@@ -8,7 +8,7 @@ import WebGL from '@site/src/components/WebGL';
 
 <WebGL />
 
-The twist effect looks visually complicated, but it only requires a few lines of code. Here's our new `map` function that produces the twist effect in the example above: 
+The twist effect looks visually complicated, but it only requires a few lines of code. Here's the new `map` function that produces the twist effect in the example above: 
 
 ```cpp
 vec2 map (vec3 p, float time) 
